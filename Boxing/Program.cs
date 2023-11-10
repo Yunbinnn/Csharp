@@ -1,5 +1,4 @@
-﻿namespace First_Class
-{
+﻿namespace Class1th
     internal class Program
     {
         static void Main(string[] args)

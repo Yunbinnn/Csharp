@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\A\\Desktop\\Csharp\\Second_Class\\Second_Class.csproj",
-      "projectName": "Second_Class",
-      "projectPath": "C:\\Users\\A\\Desktop\\Csharp\\Second_Class\\Second_Class.csproj",
+      "projectUniqueName": "C:\\Users\\A\\Desktop\\Csharp\\Second_Class\\Class2th.csproj",
+      "projectName": "Class2th",
+      "projectPath": "C:\\Users\\A\\Desktop\\Csharp\\Second_Class\\Class2th.csproj",
       "packagesPath": "C:\\Users\\A\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\A\\Desktop\\Csharp\\Second_Class\\obj\\",
       "projectStyle": "PackageReference",
