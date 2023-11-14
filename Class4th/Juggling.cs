@@ -1,4 +1,4 @@
-﻿namespace Program
+﻿namespace Class4th
 {
     public class Juggling : Unit
     {

@@ -1,10 +1,10 @@
-﻿namespace Program
+﻿namespace Class4th
 {
-    public class Magnet : IItem, IWaitTime
+    public class Shield : IItem, IWaitTime
     {
         public void Use()
         {
-            Console.WriteLine("Use Magnet");
+            Console.WriteLine("Use Shield");
         }
 
         public void Wait(float timer)
