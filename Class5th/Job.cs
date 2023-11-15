@@ -1,4 +1,4 @@
-﻿namespace Program
+﻿namespace Class5th
 {
     internal class Job
     {
