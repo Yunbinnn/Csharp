@@ -1,4 +1,4 @@
-﻿namespace Program
+﻿namespace Class6th
 {
     #region 단일 책임 원칙
     // 하나의 객체는 반드시 하나의 동작만을 수행해야 합니다.

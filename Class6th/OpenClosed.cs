@@ -1,4 +1,4 @@
-﻿namespace Program
+﻿namespace Class6th
 {
 	#region 개방 폐쇄 원칙
 	// 객체의 확장은 열려있어야 하며, 객체의 수정에는 닫혀있어야 합니다.

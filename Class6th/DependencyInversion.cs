@@ -1,8 +1,4 @@
-﻿using System.Net;
-using System.Net.Http.Headers;
-using System.Xml.Serialization;
-
-namespace Program
+﻿namespace Class6th
 {
     #region 의존관계 역전 원칙
     // 상위 계층이 하위 계층에 의존하는 전통적인 관계를
@@ -46,7 +42,7 @@ namespace Program
 
         public int Attack { get { return attack; } }
 
-		public string Name { get { return name; } }
+        public string Name { get { return name; } }
 
         public abstract void Action();
 	}
