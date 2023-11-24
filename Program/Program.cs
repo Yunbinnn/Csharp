@@ -2,70 +2,104 @@
 {
     internal class Program
     {
-        private static void Quick_Sort(int[] array, int start, int end)
+        private static void Merge_Sort(int[] array , int start, int end)
         {
-            // 원소가 1개인 경우 함수 종료
-            if (start >= end) return;
-
-            // pivot 값 설정 (배열의 첫번째 값)
-            int pivot = start;
-
-            // left 값 : pivot의 다음 배열 번호
-            int left = start + 1;
-
-            // right : 배열의 마지막 번호
-            int right = end;
-
-            // 서로 엇갈릴 때까지 반복
-            while(left <= right)
+            if (start < end)
             {
-                // pivot 값보다 큰 값을 만날 때까지 오른쪽으로 한칸씩 이동
-                while (left <= end && array[left] <= array[pivot]) left++;
+                int mid = (start + end) / 2;
 
-                // pivot 값보다 작은 값을 만날 때까지 왼쪽으로 한칸씩 이동
-                while(right > start && array[right] >= array[pivot]) right--;
+                Merge_Sort(array, start, mid);
+                Merge_Sort(array, mid + 1, end);
 
-                if (left > right)
-                {
-                    Swap(array, right, pivot);
-                }
-                else
-                {
-                    Swap(array, left, right);
-                }
-
-                Quick_Sort(array, start, right - 1); // 왼쪽 정렬 수행
-                Quick_Sort(array, right + 1, end);   // 오른쪽 정렬 수행
+                Merge(array, start, mid, end);
             }
         }
 
-        private static void Swap(int[] arr, int a, int b)
+        private static void Merge(int[] array, int start, int mid, int end)
         {
-            (arr[b], arr[a]) = (arr[a], arr[b]);
+            int[] leftSide = new int[mid - start + 1];
+            int[] rightSide = new int[end - mid];
+
+            int beginIndex = start;
+            int leftIndex;
+            int rightIndex;
+
+            for (leftIndex = 0; leftIndex <= mid; leftIndex++, beginIndex++) 
+            {
+                leftSide[leftIndex] = array[beginIndex];
+            }
+
+            beginIndex = start;
+
+            for (rightIndex = 0; rightIndex <= end; rightIndex++, beginIndex++) 
+            {
+                rightSide[rightIndex] = array[beginIndex];
+            }
+
+            /*
+            beginIndex = start;
+            leftIndex = 0;
+            rightIndex = 0;
+
+            while (leftIndex < leftSide.Length && rightIndex < rightSide.Length)
+            {
+                if (leftSide[leftIndex] < rightSide[rightIndex])
+                {
+                    array[beginIndex] = leftSide[leftIndex];
+                    leftIndex++;
+                }
+                else
+                {
+                    array[beginIndex] = rightSide[rightIndex];
+                    rightIndex++;
+                }
+
+                beginIndex++;
+            }
+
+            leftIndex = 0;
+            rightIndex = 0;
+
+            while (leftIndex < leftSide.Length)
+            {
+                array[beginIndex] = leftSide[leftIndex];
+                leftIndex++;
+                beginIndex++;
+            }
+
+            while(rightIndex < rightSide.Length)
+            {
+                array[beginIndex] = rightSide[rightIndex];
+                rightIndex++;
+                beginIndex++;
+            }
+            */
         }
 
         static void Main()
         {
-            #region 퀵 정렬
-            // 기준점을 획득한 다음 해당 기준점을 기준으로
-            // 배열을 나누고 한 쪽에는 기준점보다 작은 항목들이
-            // 위치하고 다른 쪽에는 기준점 보다 큰 항목들이 위치합니다.
+            #region 병합 정렬
+            // 하나의 리스트를 두 개의 균등한 크기로 분할하고
+            // 분할된 부분 리스트를 정렬한 다음, 두 개의 정렬된 부분
+            // 리스트를 합하여 전체가 정렬된 리스트가 되게 하는 방법입니다.
 
-            // 나뉘어진 하위 배열에 대해 재귀적으로 퀵 정렬을 호출하여
-            // 모든 배열이 기본 배열이 될 때까지 반복하면서 정렬하는 알고리즘입니다.
+            // 분할 : 입력 배열을 같은 크기의 2개의 부분 배열로 분할합니다.
 
-            // 시간 복잡도 : O(log n)
+            // 정복 : 부분 배열을 정렬하며, 부분 배열의 크기가 충분히 작지 않으면
+            //        순환 호출을 이용하여 다시 분할 정복을 실행합니다.
 
-            int[] array = new int[10] { 5, 7, 10, 4, 1, 9, 3, 8, 6, 2 };
+            // 결합 : 정렬된 부분 배열들을 하나의 배열에 병합합니다.
+
+            int[] array = new int[10] { 6, 9, 2, 7, 5, 8, 3, 10, 4, 1 };
 
             Console.Write("정렬 전 : ");
-            foreach (int element in array)
+            foreach(int element in array)
             {
                 Console.Write(element + " ");
             }
             Console.WriteLine("\n");
 
-            Quick_Sort(array, 0, array.Length - 1);
+            Merge_Sort(array, 0, array.Length - 1);
 
             Console.Write("정렬 후 : ");
             foreach (int element in array)
