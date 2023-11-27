@@ -2,111 +2,41 @@
 {
     internal class Program
     {
-        private static void Merge_Sort(int[] array , int start, int end)
-        {
-            if (start < end)
-            {
-                int mid = (start + end) / 2;
-
-                Merge_Sort(array, start, mid);
-                Merge_Sort(array, mid + 1, end);
-
-                Merge(array, start, mid, end);
-            }
-        }
-
-        private static void Merge(int[] array, int start, int mid, int end)
-        {
-            int[] leftSide = new int[mid - start + 1];
-            int[] rightSide = new int[end - mid];
-
-            int beginIndex = start;
-            int leftIndex;
-            int rightIndex;
-
-            for (leftIndex = 0; leftIndex <= mid; leftIndex++, beginIndex++) 
-            {
-                leftSide[leftIndex] = array[beginIndex];
-            }
-
-            beginIndex = start;
-
-            for (rightIndex = 0; rightIndex <= end; rightIndex++, beginIndex++) 
-            {
-                rightSide[rightIndex] = array[beginIndex];
-            }
-
-            /*
-            beginIndex = start;
-            leftIndex = 0;
-            rightIndex = 0;
-
-            while (leftIndex < leftSide.Length && rightIndex < rightSide.Length)
-            {
-                if (leftSide[leftIndex] < rightSide[rightIndex])
-                {
-                    array[beginIndex] = leftSide[leftIndex];
-                    leftIndex++;
-                }
-                else
-                {
-                    array[beginIndex] = rightSide[rightIndex];
-                    rightIndex++;
-                }
-
-                beginIndex++;
-            }
-
-            leftIndex = 0;
-            rightIndex = 0;
-
-            while (leftIndex < leftSide.Length)
-            {
-                array[beginIndex] = leftSide[leftIndex];
-                leftIndex++;
-                beginIndex++;
-            }
-
-            while(rightIndex < rightSide.Length)
-            {
-                array[beginIndex] = rightSide[rightIndex];
-                rightIndex++;
-                beginIndex++;
-            }
-            */
-        }
-
         static void Main()
         {
-            #region 병합 정렬
-            // 하나의 리스트를 두 개의 균등한 크기로 분할하고
-            // 분할된 부분 리스트를 정렬한 다음, 두 개의 정렬된 부분
-            // 리스트를 합하여 전체가 정렬된 리스트가 되게 하는 방법입니다.
+            #region 그래프
+            // 정점(vertex)과 간선(Edge)들이 서로 복잡하게 연결되어 있는 자료구조 입니다.
 
-            // 분할 : 입력 배열을 같은 크기의 2개의 부분 배열로 분할합니다.
+            // 정점 (vertex)
+            // 노드(node)라고도 불리며, 데이터가 저장되는 그래프의 기본 원소입니다.
 
-            // 정복 : 부분 배열을 정렬하며, 부분 배열의 크기가 충분히 작지 않으면
-            //        순환 호출을 이용하여 다시 분할 정복을 실행합니다.
+            // 간선 (Edge)
+            // 링크(link)라고도 하며, 정점 간의 관계를 나타냅니다.
 
-            // 결합 : 정렬된 부분 배열들을 하나의 배열에 병합합니다.
+            // 인접 정점 (adjacent vertex)
+            // 하나의 정점에서 간선에 의해 직접 연결되어 있는 정점을 의미합니다.
 
-            int[] array = new int[10] { 6, 9, 2, 7, 5, 8, 3, 10, 4, 1 };
+            // 차수 (Degree)
+            // 정점에 연결되어 있는 간선의 수를 의미합니다.
 
-            Console.Write("정렬 전 : ");
-            foreach(int element in array)
-            {
-                Console.Write(element + " ");
-            }
-            Console.WriteLine("\n");
+            // 진입 차수 (in -> Degree)
+            // 외부에서 오는 간선의 수를 의미합니다.
 
-            Merge_Sort(array, 0, array.Length - 1);
+            // 진출 차수 (out -> Degree)
+            // 외부로 향하는 간선의 수를 의미합니다.
 
-            Console.Write("정렬 후 : ");
-            foreach (int element in array)
-            {
-                Console.Write(element + " ");
-            }
-            Console.WriteLine("");
+            // 단순 경로 (Simple Path)
+            // 경로 중에서 반복되는 간선이 없는 경로를 의미합니다.
+            // ex) A -> C -> D -> A (O) / A -> C -> D -> C -> A (X)
+
+            // 사이클 (Cycle)
+            // 시작 정점과 종료 정점이 같은 단순 경로를 의미합니다.
+
+            #endregion
+
+            #region 인접 행렬
+
+
 
             #endregion
         }
