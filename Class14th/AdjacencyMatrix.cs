@@ -1,4 +1,4 @@
-﻿namespace Program
+﻿namespace Class14th
 {
     public class AdjacencyMatrix<T>
     {
