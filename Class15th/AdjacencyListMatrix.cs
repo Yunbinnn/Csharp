@@ -1,4 +1,4 @@
-﻿namespace Program
+﻿namespace Class15th
 {
     public class AdjacencyListMatrix
     {
@@ -70,6 +70,23 @@
                         queue.Enqueue(adjacencyList[index][i]);
                     }
                 }
+            }
+        }
+
+        public void Depth_First_Search(int root)
+        {
+            bool[] visited = new bool[size];
+
+            // 현재 노드를 방문한 것으로 표시합니다.
+            visited[root] = true;
+
+            // 현재 노드를 출력합니다.
+            Console.Write(root + " ");
+
+            // 현재 노드와 연결된 방문하지 않은 노드를 재귀적으로 탐색합니다.
+            foreach(int next in adjacencyList[root])
+            {
+                if (!visited[next]) Depth_First_Search(next);
             }
         }
     }
